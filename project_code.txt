@@ -1,0 +1,1733 @@
+===== D:\Android\open_fashion_app\analysis_options.yaml =====
+# This file configures the analyzer, which statically analyzes Dart code to
+# check for errors, warnings, and lints.
+#
+# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
+# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
+# invoked from the command line by running `flutter analyze`.
+
+# The following line activates a set of recommended lints for Flutter apps,
+# packages, and plugins designed to encourage good coding practices.
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  # The lint rules applied to this project can be customized in the
+  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
+  # included above or to enable additional rules. A list of all available lints
+  # and their documentation is published at https://dart.dev/lints.
+  #
+  # Instead of disabling a lint rule for the entire project in the
+  # section below, it can also be suppressed for a single line of code
+  # or a specific dart file by using the `// ignore: name_of_lint` and
+  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
+  # producing the lint.
+  rules:
+    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
+    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+
+# Additional information about this file can be found at
+# https://dart.dev/guides/language/analysis-options
+===== D:\Android\open_fashion_app\pubspec.yaml =====
+name: open_fashion
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.1
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.8
+  flutter_svg: ^2.1.0
+  flutter_credit_card: ^4.1.0
+  flutter_launcher_icons: ^0.14.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/logo/appLogo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^5.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/cover/
+    - assets/logo/
+    - assets/product/
+    - assets/svgs/
+    - assets/texts/
+    - assets/svgs/Rate/
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/to/resolution-aware-images
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/to/asset-from-package
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+    - family: "TenorSans"
+      fonts:
+        - asset: assets/fonts/Tenor_Sans/TenorSans-Regular.ttf
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/to/font-from-package
+===== D:\Android\open_fashion_app\android\app\src\debug\AndroidManifest.xml =====
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- The INTERNET permission is required for development. Specifically,
+         the Flutter tool needs it to communicate with the running application
+         to allow setting breakpoints, to provide hot reload, etc.
+    -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+</manifest>
+===== D:\Android\open_fashion_app\android\app\src\main\AndroidManifest.xml =====
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application
+        android:label="open_fashion"
+        android:name="${applicationName}"
+        android:icon="@mipmap/launcher_icon">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:taskAffinity=""
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <!-- Specifies an Android theme to apply to this Activity as soon as
+                 the Android process has started. This theme is visible to the user
+                 while the Flutter UI initializes. After that, this theme continues
+                 to determine the Window background behind the Flutter UI. -->
+            <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"
+              />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <!-- Don't delete the meta-data below.
+             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+    <!-- Required to query activities that can process text, see:
+         https://developer.android.com/training/package-visibility and
+         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+
+         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+    </queries>
+</manifest>
+===== D:\Android\open_fashion_app\android\app\src\main\res\drawable\launch_background.xml =====
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modify this file to customize your launch splash screen -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@android:color/white" />
+
+    <!-- You can insert your own image assets here -->
+    <!-- <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@mipmap/launch_image" />
+    </item> -->
+</layer-list>
+===== D:\Android\open_fashion_app\android\app\src\main\res\drawable-v21\launch_background.xml =====
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modify this file to customize your launch splash screen -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="?android:colorBackground" />
+
+    <!-- You can insert your own image assets here -->
+    <!-- <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@mipmap/launch_image" />
+    </item> -->
+</layer-list>
+===== D:\Android\open_fashion_app\android\app\src\main\res\values\styles.xml =====
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme applied to the Android Window while the process is starting when the OS's Dark Mode setting is off -->
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <!-- Show a splash screen on the activity. Automatically removed when
+             the Flutter engine draws its first frame -->
+        <item name="android:windowBackground">@drawable/launch_background</item>
+    </style>
+    <!-- Theme applied to the Android Window as soon as the process has started.
+         This theme determines the color of the Android Window while your
+         Flutter UI initializes, as well as behind your Flutter UI while its
+         running.
+
+         This Theme is only used starting with V2 of Flutter's Android embedding. -->
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+</resources>
+===== D:\Android\open_fashion_app\android\app\src\main\res\values-night\styles.xml =====
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme applied to the Android Window while the process is starting when the OS's Dark Mode setting is on -->
+    <style name="LaunchTheme" parent="@android:style/Theme.Black.NoTitleBar">
+        <!-- Show a splash screen on the activity. Automatically removed when
+             the Flutter engine draws its first frame -->
+        <item name="android:windowBackground">@drawable/launch_background</item>
+    </style>
+    <!-- Theme applied to the Android Window as soon as the process has started.
+         This theme determines the color of the Android Window while your
+         Flutter UI initializes, as well as behind your Flutter UI while its
+         running.
+
+         This Theme is only used starting with V2 of Flutter's Android embedding. -->
+    <style name="NormalTheme" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+</resources>
+===== D:\Android\open_fashion_app\android\app\src\profile\AndroidManifest.xml =====
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- The INTERNET permission is required for development. Specifically,
+         the Flutter tool needs it to communicate with the running application
+         to allow setting breakpoints, to provide hot reload, etc.
+    -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+</manifest>
+===== D:\Android\open_fashion_app\ios\Runner\Assets.xcassets\AppIcon.appiconset\Contents.json =====
+{"images":[{"size":"20x20","idiom":"iphone","filename":"Icon-App-20x20@2x.png","scale":"2x"},{"size":"20x20","idiom":"iphone","filename":"Icon-App-20x20@3x.png","scale":"3x"},{"size":"29x29","idiom":"iphone","filename":"Icon-App-29x29@1x.png","scale":"1x"},{"size":"29x29","idiom":"iphone","filename":"Icon-App-29x29@2x.png","scale":"2x"},{"size":"29x29","idiom":"iphone","filename":"Icon-App-29x29@3x.png","scale":"3x"},{"size":"40x40","idiom":"iphone","filename":"Icon-App-40x40@2x.png","scale":"2x"},{"size":"40x40","idiom":"iphone","filename":"Icon-App-40x40@3x.png","scale":"3x"},{"size":"57x57","idiom":"iphone","filename":"Icon-App-57x57@1x.png","scale":"1x"},{"size":"57x57","idiom":"iphone","filename":"Icon-App-57x57@2x.png","scale":"2x"},{"size":"60x60","idiom":"iphone","filename":"Icon-App-60x60@2x.png","scale":"2x"},{"size":"60x60","idiom":"iphone","filename":"Icon-App-60x60@3x.png","scale":"3x"},{"size":"20x20","idiom":"ipad","filename":"Icon-App-20x20@1x.png","scale":"1x"},{"size":"20x20","idiom":"ipad","filename":"Icon-App-20x20@2x.png","scale":"2x"},{"size":"29x29","idiom":"ipad","filename":"Icon-App-29x29@1x.png","scale":"1x"},{"size":"29x29","idiom":"ipad","filename":"Icon-App-29x29@2x.png","scale":"2x"},{"size":"40x40","idiom":"ipad","filename":"Icon-App-40x40@1x.png","scale":"1x"},{"size":"40x40","idiom":"ipad","filename":"Icon-App-40x40@2x.png","scale":"2x"},{"size":"50x50","idiom":"ipad","filename":"Icon-App-50x50@1x.png","scale":"1x"},{"size":"50x50","idiom":"ipad","filename":"Icon-App-50x50@2x.png","scale":"2x"},{"size":"72x72","idiom":"ipad","filename":"Icon-App-72x72@1x.png","scale":"1x"},{"size":"72x72","idiom":"ipad","filename":"Icon-App-72x72@2x.png","scale":"2x"},{"size":"76x76","idiom":"ipad","filename":"Icon-App-76x76@1x.png","scale":"1x"},{"size":"76x76","idiom":"ipad","filename":"Icon-App-76x76@2x.png","scale":"2x"},{"size":"83.5x83.5","idiom":"ipad","filename":"Icon-App-83.5x83.5@2x.png","scale":"2x"},{"size":"1024x1024","idiom":"ios-marketing","filename":"Icon-App-1024x1024@1x.png","scale":"1x"}],"info":{"version":1,"author":"xcode"}}
+===== D:\Android\open_fashion_app\ios\Runner\Assets.xcassets\LaunchImage.imageset\Contents.json =====
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "LaunchImage.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "LaunchImage@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "LaunchImage@3x.png",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
+===== D:\Android\open_fashion_app\lib\main.dart =====
+import 'package:flutter/material.dart';
+import 'package:open_fashion/screens/home.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Open Fashion',
+      theme: ThemeData(),
+      home: Home(),
+    );
+  }
+}
+===== D:\Android\open_fashion_app\lib\components\cart_widget.dart =====
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:open_fashion/components/custom_text.dart';
+import 'package:open_fashion/core/colors.dart';
+import 'package:open_fashion/models/product_model.dart';
+
+class CartWidget extends StatefulWidget {
+  final ProductModel product;
+  final Function(int) onChanged;
+  final int qunt;
+  const CartWidget(
+      {super.key,
+      required this.product,
+      required this.onChanged,
+      required this.qunt});
+
+  @override
+  State<CartWidget> createState() => _CartWidgetState();
+}
+
+class _CartWidgetState extends State<CartWidget> {
+  int number = 1;
+
+  @override
+  void initState() {
+    number = 1;
+    number = widget.qunt;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Image.asset(
+          widget.product.image,
+          width: 120,
+          fit: BoxFit.cover,
+        ),
+        SizedBox(width: 20),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustomText(
+              text: widget.product.name,
+              color: AppColor.primary,
+              spacing: 2,
+              fontSize: 20,
+              weight: FontWeight.bold,
+            ),
+            SizedBox(height: 10),
+            CustomText(
+                text: widget.product.desription,
+                color: AppColor.primary,
+                fontSize: 16),
+            SizedBox(height: 20),
+            Row(
+              children: [
+                qunt("assets/svgs/min.svg", () {
+                  setState(() {
+                    if (number > 1) {
+                      number--;
+                      widget.onChanged(number);
+                    }
+                  });
+                }),
+                SizedBox(width: 20),
+                CustomText(
+                  text: number.toString(),
+                  weight: FontWeight.bold,
+                  fontSize: 18,
+                  color: AppColor.primary,
+                ),
+                SizedBox(width: 20),
+                qunt("assets/svgs/Plus.svg", () {
+                  setState(() {
+                    number++;
+                    widget.onChanged(number);
+                  });
+                }),
+              ],
+            ),
+            SizedBox(height: 20),
+            CustomText(
+              text: "\$${widget.product.price}",
+              color: Colors.red.shade200,
+              weight: FontWeight.bold,
+              fontSize: 20,
+            ),
+          ],
+        )
+      ],
+    );
+  }
+}
+
+Widget qunt(svg, onTap) {
+  return InkWell(
+    onTap: onTap,
+    child: Container(
+      width: 26,
+      height: 26,
+      padding: EdgeInsets.all(5),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30),
+        border: Border.all(color: Colors.grey.shade300, width: 1),
+      ),
+      child: SvgPicture.asset(
+        svg,
+        color: AppColor.primary,
+      ),
+    ),
+  );
+}
+===== D:\Android\open_fashion_app\lib\components\custom_app_bar.dart =====
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:open_fashion/core/colors.dart';
+
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final bool isBlackk;
+  const CustomAppBar({super.key, required this.isBlackk});
+
+  @override
+  Size get preferredSize => const Size.fromHeight(80);
+
+  @override
+  Widget build(BuildContext context) {
+    bool isBlack = isBlackk;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: AppBar(
+        backgroundColor: isBlack ? AppColor.primary : Colors.white,
+        leadingWidth: 24,
+        centerTitle: true,
+        leading: SvgPicture.asset("assets/svgs/Menu.svg",
+            color: isBlack ? Colors.white : AppColor.primary),
+        title: SvgPicture.asset("assets/logo/Logo.svg",
+            color: isBlack ? Colors.white : AppColor.primary),
+        actions: [
+          SvgPicture.asset("assets/svgs/Search.svg",
+              color: isBlack ? Colors.white : AppColor.primary),
+          SizedBox(width: 20),
+          SvgPicture.asset("assets/svgs/shopping bag.svg",
+              color: isBlack ? Colors.white : AppColor.primary),
+        ],
+      ),
+    );
+  }
+}
+===== D:\Android\open_fashion_app\lib\components\custom_button.dart =====
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:open_fashion/components/custom_text.dart';
+import 'package:open_fashion/core/colors.dart';
+
+class CustomButton extends StatelessWidget {
+  final String name;
+  final bool withIcon;
+  final String svg;
+  final VoidCallback onTap;
+  const CustomButton(
+      {super.key,
+      required this.name,
+      required this.withIcon,
+      this.svg = "",
+      required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        color: AppColor.primary,
+        width: double.infinity,
+        height: 50,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            withIcon
+                ? SvgPicture.asset(
+                    svg,
+                    width: 24,
+                    height: 24,
+                  )
+                : SizedBox.shrink(),
+            SizedBox(width: 10),
+            CustomText(
+              text: name.toUpperCase(),
+              fontSize: 18,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+===== D:\Android\open_fashion_app\lib\components\custom_container.dart =====
+import 'package:flutter/material.dart';
+import 'package:open_fashion/components/custom_text.dart';
+import 'package:open_fashion/core/colors.dart';
+
+class CustomContainer extends StatelessWidget {
+  final String text;
+  final Icon icon;
+  final bool iconWithText;
+  const CustomContainer(
+      {super.key,
+      required this.text,
+      required this.icon,
+      required this.iconWithText});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30),
+        color: Colors.grey.shade200,
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      height: 50,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          CustomText(
+            text: text,
+            color: AppColor.primary,
+            fontSize: 16,
+          ),
+          Row(
+            children: [
+              iconWithText
+                  ? CustomText(
+                      text: "Free",
+                      color: AppColor.primary,
+                      fontSize: 16,
+                    )
+                  : SizedBox.shrink(),
+              SizedBox(width: 10),
+              IconButton(onPressed: () {}, icon: icon)
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
+===== D:\Android\open_fashion_app\lib\components\custom_dialog.dart =====
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:open_fashion/components/custom_text.dart';
+import 'package:open_fashion/core/colors.dart';
+import 'package:open_fashion/screens/home.dart';
+
+class CustomDialog extends StatelessWidget {
+  const CustomDialog({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 450,
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Align(
+            alignment: Alignment.bottomRight,
+            child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.close)),
+          ),
+          CustomText(
+            text: "Payment success".toUpperCase(),
+            fontSize: 20,
+            color: AppColor.primary,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          SvgPicture.asset("assets/svgs/successShape.svg"),
+          SizedBox(
+            height: 20,
+          ),
+          CustomText(
+            text: "Your payment was success",
+            fontSize: 16,
+            color: AppColor.primary,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          CustomText(
+            text: "Payment ID: 56456541",
+            fontSize: 14,
+            color: AppColor.primary,
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          SvgPicture.asset(
+            "assets/svgs/shape.svg",
+            color: Colors.black,
+            width: 100,
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          CustomText(
+            text: "Rate your purchase",
+            fontSize: 18,
+            color: AppColor.primary,
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset("assets/svgs/Rate/Disappointed.svg"),
+              SizedBox(width: 20),
+              SvgPicture.asset("assets/svgs/Rate/Happy.svg"),
+              SizedBox(width: 20),
+              SvgPicture.asset("assets/svgs/Rate/In Love.svg")
+            ],
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    color: AppColor.primary,
+                    height: 50,
+                    child:
+                        Center(child: CustomText(text: "Submit".toUpperCase())),
+                  ),
+                ),
+                SizedBox(width: 10),
+                Expanded(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => Home()),
+                        (route) => false,
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          border: Border.all(color: Colors.black45)),
+                      height: 50,
+                      child: Center(
+                          child: CustomText(
+                              color: AppColor.primary,
+                              text: "back to home".toUpperCase())),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+===== D:\Android\open_fashion_app\lib\components\custom_header.dart =====
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:open_fashion/components/custom_text.dart';
+import 'package:open_fashion/core/colors.dart';
+
+class CustomHeader extends StatelessWidget {
+  final String title;
+  const CustomHeader({super.key, required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        children: [
+          CustomText(
+              text: title, spacing: 4, fontSize: 24, color: AppColor.primary),
+          SvgPicture.asset(
+            "assets/svgs/shape.svg",
+            color: AppColor.primary,
+            width: 160,
+          ),
+        ],
+      ),
+    );
+  }
+}
+===== D:\Android\open_fashion_app\lib\components\custom_text_field.dart =====
+import 'package:flutter/material.dart';
+
+class CustomTextField extends StatelessWidget {
+  final String hint;
+  final TextEditingController controller;
+  const CustomTextField(
+      {super.key, required this.hint, required this.controller});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      validator: (v) {
+        return "Pelase fill this filed!";
+      },
+      controller: controller,
+      decoration: InputDecoration(
+        hintText: hint,
+        hintStyle: TextStyle(fontFamily: "TenorSans", color: Colors.black54),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey.shade400),
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey.shade500),
+        ),
+      ),
+    );
+  }
+}
+===== D:\Android\open_fashion_app\lib\components\custom_text.dart =====
+import 'package:flutter/material.dart';
+
+class CustomText extends StatelessWidget {
+  final String text;
+  final String fontName;
+  final double fontSize;
+  final FontWeight weight;
+  final Color color;
+  final double spacing;
+  const CustomText({
+    super.key,
+    required this.text,
+    this.fontName = "TenorSans",
+    this.fontSize = 14,
+    this.weight = FontWeight.normal,
+    this.color = Colors.white,
+    this.spacing = 1,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(
+        letterSpacing: spacing,
+        fontFamily: fontName,
+        fontSize: fontSize,
+        fontWeight: weight,
+        color: color,
+      ),
+    );
+  }
+}
+===== D:\Android\open_fashion_app\lib\components\shipping_method.dart =====
+import 'package:flutter/material.dart';
+import 'package:open_fashion/components/custom_container.dart';
+import 'package:open_fashion/components/custom_text.dart';
+
+class ShippingMethod extends StatelessWidget {
+  const ShippingMethod({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        CustomText(
+          text: "Shipping Method".toUpperCase(),
+          fontSize: 16,
+          color: Colors.black38,
+        ),
+        SizedBox(height: 10),
+        CustomContainer(
+            text: "Pickup at store", icon: Icon(Icons.add), iconWithText: true),
+      ],
+    );
+  }
+}
+===== D:\Android\open_fashion_app\lib\core\colors.dart =====
+import 'package:flutter/material.dart';
+
+class AppColor {
+  static const Color primary = Color(0xff111111);
+}
+===== D:\Android\open_fashion_app\lib\models\cover_model.dart =====
+class CoverModel {
+  final String image;
+  final String name;
+
+  CoverModel({required this.image, required this.name});
+
+  static List<CoverModel> covers = [
+    CoverModel(
+        image: "assets/cover/Rectangle 440.png", name: "Black collection"),
+    CoverModel(image: "assets/cover/Rectangle 441.png", name: "HAE BY HAEKIM"),
+    CoverModel(
+        image: "assets/cover/Rectangle 440.png", name: "Black collection"),
+  ];
+}
+===== D:\Android\open_fashion_app\lib\models\product_model.dart =====
+class ProductModel {
+  final String image;
+  final String name;
+  final String desription;
+  final String price;
+
+  ProductModel(
+      {required this.image,
+      required this.desription,
+      required this.name,
+      required this.price});
+
+  static List<ProductModel> products = [
+    ProductModel(
+        image: "assets/product/1.png",
+        desription: "reversible angora cardigan",
+        name: "October",
+        price: "120"),
+    ProductModel(
+        image: "assets/product/2.png",
+        desription: "reversible angora cardigan",
+        name: "October",
+        price: "270"),
+    ProductModel(
+        image: "assets/product/3.png",
+        desription: "reversible angora cardigan",
+        name: "October",
+        price: "210"),
+    ProductModel(
+        image: "assets/product/4.png",
+        desription: "reversible angora cardigan",
+        name: "October",
+        price: "700"),
+    ProductModel(
+        image: "assets/product/5.png",
+        desription: "reversible angora cardigan",
+        name: "October",
+        price: "400"),
+    ProductModel(
+        image: "assets/product/6.png",
+        desription: "reversible angora cardigan",
+        name: "October",
+        price: "350"),
+  ];
+}
+===== D:\Android\open_fashion_app\lib\screens\add_new_address.dart =====
+import 'package:flutter/material.dart';
+import 'package:open_fashion/components/custom_app_bar.dart';
+import 'package:open_fashion/components/custom_button.dart';
+import 'package:open_fashion/components/custom_header.dart';
+import 'package:open_fashion/components/custom_text_field.dart';
+
+class AddNewAddress extends StatefulWidget {
+  final dynamic lastAddress;
+  const AddNewAddress({super.key, this.lastAddress});
+
+  @override
+  State<AddNewAddress> createState() => _AddNewAddressState();
+}
+
+class _AddNewAddressState extends State<AddNewAddress> {
+  TextEditingController firstnameController = TextEditingController();
+  TextEditingController lastnameController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
+  TextEditingController stateController = TextEditingController();
+  TextEditingController zipCodeController = TextEditingController();
+  TextEditingController phoneNumberController = TextEditingController();
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.lastAddress != null) {
+      firstnameController.text = widget.lastAddress['first'] ?? "";
+      lastnameController.text = widget.lastAddress['last'] ?? "";
+      addressController.text = widget.lastAddress['address'] ?? "";
+      cityController.text = widget.lastAddress['city'] ?? "";
+      stateController.text = widget.lastAddress['state'] ?? "";
+      zipCodeController.text = widget.lastAddress['zipCode'] ?? "";
+      phoneNumberController.text = widget.lastAddress['phoneNumber'] ?? "";
+    }
+  }
+
+  @override
+  void dispose() {
+    firstnameController.dispose();
+    lastnameController.dispose();
+    addressController.dispose();
+    cityController.dispose();
+    stateController.dispose();
+    zipCodeController.dispose();
+    phoneNumberController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: CustomAppBar(isBlackk: false),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
+              children: [
+                SizedBox(height: 20),
+                CustomHeader(title: "Add shipping adress"),
+                SizedBox(height: 20),
+                Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Expanded(
+                                child: CustomTextField(
+                              hint: "First name",
+                              controller: firstnameController,
+                            )),
+                            SizedBox(width: 14),
+                            Expanded(
+                                child: CustomTextField(
+                              hint: "Last name",
+                              controller: lastnameController,
+                            )),
+                          ],
+                        ),
+                        SizedBox(height: 20),
+                        CustomTextField(
+                          hint: "Address",
+                          controller: addressController,
+                        ),
+                        SizedBox(height: 20),
+                        CustomTextField(
+                          hint: "City",
+                          controller: cityController,
+                        ),
+                        SizedBox(height: 20),
+                        Row(
+                          children: [
+                            Expanded(
+                                child: CustomTextField(
+                              hint: "State",
+                              controller: stateController,
+                            )),
+                            SizedBox(width: 14),
+                            Expanded(
+                                child: CustomTextField(
+                              hint: "ZIP code",
+                              controller: zipCodeController,
+                            )),
+                          ],
+                        ),
+                        SizedBox(height: 20),
+                        CustomTextField(
+                          hint: "Phone number",
+                          controller: phoneNumberController,
+                        )
+                      ],
+                    ))
+              ],
+            ),
+          ),
+          Spacer(),
+          CustomButton(
+            name: "add now".toUpperCase(),
+            withIcon: false,
+            onTap: () {
+              if (_formKey.currentState!.validate()) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("Plese Fill All fields!")));
+              } else {
+                final address = {
+                  'first': firstnameController.text,
+                  'last': lastnameController.text,
+                  'address': addressController.text,
+                  'city': cityController.text,
+                  'state': stateController.text,
+                  'zipCode': zipCodeController.text,
+                  'phoneNumber': phoneNumberController.text
+                };
+                Navigator.pop(context, address);
+              }
+            },
+          )
+        ],
+      ),
+    );
+  }
+}
+===== D:\Android\open_fashion_app\lib\screens\add_new_card.dart =====
+import 'package:flutter/material.dart';
+import 'package:flutter_credit_card/flutter_credit_card.dart';
+import 'package:open_fashion/components/custom_app_bar.dart';
+import 'package:open_fashion/components/custom_button.dart';
+import 'package:open_fashion/components/custom_header.dart';
+
+class AddNewCard extends StatefulWidget {
+  final dynamic lastCard;
+  const AddNewCard({super.key, this.lastCard});
+
+  @override
+  State<AddNewCard> createState() => _AddNewCardState();
+}
+
+class _AddNewCardState extends State<AddNewCard> {
+  final _formKey = GlobalKey<FormState>();
+
+  String cardNumber = '';
+  String expirtyDate = '';
+  String holderName = '';
+  String cvv = '';
+
+  @override
+  void initState() {
+    if (widget.lastCard != null) {
+      cardNumber = widget.lastCard['cardNumber'] ?? '';
+      holderName = widget.lastCard['holderName'] ?? '';
+      expirtyDate = widget.lastCard['expirtyDate'] ?? '';
+      cvv = widget.lastCard['cvvCard'] ?? '';
+    }
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: CustomAppBar(isBlackk: false),
+      body: Column(
+        children: [
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(height: 20),
+                CustomHeader(title: "Payment method"),
+                SizedBox(height: 20),
+                CreditCardWidget(
+                    cardNumber: cardNumber,
+                    expiryDate: expirtyDate,
+                    cardHolderName: holderName,
+                    cvvCode: cvv,
+                    showBackView: true,
+                    isHolderNameVisible: true,
+                    cardBgColor: Colors.black26,
+                    onCreditCardWidgetChange: (data) {}),
+                CreditCardForm(
+                    cardNumber: cardNumber,
+                    expiryDate: expirtyDate,
+                    cardHolderName: holderName,
+                    cvvCode: cvv,
+                    onCreditCardModelChange: (model) {
+                      _onCreditCardWidgetChange(model);
+                    },
+                    formKey: _formKey)
+              ],
+            ),
+          ),
+          Spacer(),
+          CustomButton(
+            name: "add card".toUpperCase(),
+            withIcon: false,
+            svg: "assets/svgs/shopping bag.svg",
+            onTap: () {
+              if (_formKey.currentState!.validate()) {
+                final cardData = {
+                  'cardNumber': cardNumber,
+                  'holderName': holderName,
+                  'expirtyDate': expirtyDate,
+                  'cvvCard': cvv
+                };
+                Navigator.pop(context, cardData);
+              }
+            },
+          )
+        ],
+      ),
+    );
+  }
+
+  void _onCreditCardWidgetChange(CreditCardModel data) {
+    setState(() {
+      cardNumber = data.cardNumber;
+      holderName = data.cardHolderName;
+      expirtyDate = data.expiryDate;
+      cvv = data.cvvCode;
+    });
+  }
+}
+===== D:\Android\open_fashion_app\lib\screens\checkout.dart =====
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:open_fashion/components/cart_widget.dart';
+import 'package:open_fashion/components/custom_app_bar.dart';
+import 'package:open_fashion/components/custom_button.dart';
+import 'package:open_fashion/components/custom_header.dart';
+import 'package:open_fashion/components/custom_text.dart';
+import 'package:open_fashion/core/colors.dart';
+import 'package:open_fashion/models/product_model.dart';
+import 'package:open_fashion/screens/place_order.dart';
+
+class Checkout extends StatefulWidget {
+  final ProductModel product;
+  const Checkout({super.key, required this.product});
+
+  @override
+  State<Checkout> createState() => _CheckoutState();
+}
+
+class _CheckoutState extends State<Checkout> {
+  int selectedQun = 1;
+
+  @override
+  Widget build(BuildContext context) {
+    int total = selectedQun * int.parse(widget.product.price);
+    return Scaffold(
+      appBar: CustomAppBar(isBlackk: false),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
+              children: [
+                SizedBox(height: 20),
+                CustomHeader(title: "Checkout".toUpperCase()),
+                SizedBox(height: 20),
+                CartWidget(
+                  product: widget.product,
+                  onChanged: (v) {
+                    setState(() {
+                      selectedQun = v;
+                    });
+                  },
+                  qunt: selectedQun,
+                ),
+                SizedBox(height: 10),
+                Divider(),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        "assets/svgs/promoCode.svg",
+                        color: AppColor.primary,
+                        width: 18,
+                        height: 18,
+                      ),
+                      SizedBox(width: 15),
+                      CustomText(
+                        text: "Add promo code",
+                        color: AppColor.primary,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10),
+                Divider(),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(children: [
+                        SvgPicture.asset(
+                          "assets/svgs/Door to Door Delivery.svg",
+                          color: AppColor.primary,
+                          width: 26,
+                          height: 26,
+                        ),
+                        SizedBox(width: 15),
+                        CustomText(
+                          text: "Delivery",
+                          color: AppColor.primary,
+                        )
+                      ]),
+                      CustomText(
+                        text: "Free",
+                        color: AppColor.primary,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10),
+                Divider(),
+                SizedBox(height: 270),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomText(
+                      text: "Est. Total",
+                      color: AppColor.primary,
+                      fontSize: 18,
+                    ),
+                    CustomText(
+                      text:
+                          "\$${selectedQun * int.parse(widget.product.price)}",
+                      color: Colors.red.shade200,
+                      fontSize: 18,
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20),
+              ],
+            ),
+          ),
+          Spacer(),
+          CustomButton(
+            name: "chekout",
+            withIcon: true,
+            svg: "assets/svgs/shopping bag.svg",
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => PlaceOrder(
+                        product: widget.product,
+                        total: total,
+                        qunt: selectedQun,
+                      )));
+            },
+          )
+        ],
+      ),
+    );
+  }
+}
+===== D:\Android\open_fashion_app\lib\screens\home.dart =====
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:open_fashion/components/custom_text.dart';
+import 'package:open_fashion/core/colors.dart';
+import 'package:open_fashion/components/custom_app_bar.dart';
+import 'package:open_fashion/models/cover_model.dart';
+import 'package:open_fashion/models/product_model.dart';
+import 'package:open_fashion/screens/checkout.dart';
+
+class Home extends StatelessWidget {
+  const Home({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColor.primary,
+      appBar: CustomAppBar(isBlackk: true),
+      body: Stack(
+        children: [
+          Positioned(
+            top: 20,
+            right: 0,
+            left: 0,
+            child: SvgPicture.asset("assets/texts/10.svg"),
+          ),
+          Positioned(
+              top: 60,
+              right: 0,
+              left: 0,
+              child: SvgPicture.asset("assets/texts/October.svg")),
+          Positioned(
+              top: 100,
+              right: 0,
+              left: 0,
+              child: SvgPicture.asset("assets/texts/Collection.svg")),
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(height: 130),
+                Image.asset("assets/cover/image20.png"),
+                SizedBox(height: 40),
+                GridView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 0,
+                      childAspectRatio: 0.53,
+                      crossAxisSpacing: 15),
+                  itemCount: ProductModel.products.length,
+                  itemBuilder: (context, index) {
+                    final item = ProductModel.products[index];
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => Checkout(product: item)));
+                      },
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            item.image,
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                          ),
+                          SizedBox(height: 15),
+                          CustomText(text: item.name),
+                          CustomText(text: item.desription),
+                          CustomText(
+                            text: "\$${item.price}",
+                            color: Colors.red.shade200,
+                            fontSize: 18,
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                ),
+                SizedBox(height: 40),
+                CustomText(
+                    text: "You may also like".toUpperCase(), fontSize: 30),
+                SizedBox(height: 8),
+                SvgPicture.asset(
+                  "assets/svgs/shape.svg",
+                  width: 150,
+                ),
+                SizedBox(height: 40),
+                SizedBox(
+                  height: 400,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: CoverModel.covers.length,
+                    itemBuilder: (context, index) {
+                      final item = CoverModel.covers[index];
+                      return Container(
+                        margin: EdgeInsets.only(right: 15),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              item.image,
+                              fit: BoxFit.cover,
+                              height: 350,
+                              width: 300,
+                            ),
+                            SizedBox(height: 10),
+                            CustomText(
+                              text: item.name.toUpperCase(),
+                              fontSize: 20,
+                            )
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(height: 40),
+                about(),
+                Container(
+                  height: 50,
+                  width: MediaQuery.sizeOf(context).width,
+                  color: Colors.grey.shade600,
+                  child: Center(
+                    child: CustomText(
+                      text: "Copyright© OpenUI All Rights Reserved.",
+                    ),
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+Widget about() {
+  return Column(
+    children: [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.facebook,
+            color: Colors.white,
+            size: 30,
+          ),
+          SizedBox(width: 30),
+          Icon(
+            Icons.facebook,
+            color: Colors.white,
+            size: 30,
+          ),
+          SizedBox(width: 30),
+          Icon(
+            Icons.facebook,
+            color: Colors.white,
+            size: 30,
+          )
+        ],
+      ),
+      SizedBox(height: 30),
+      SvgPicture.asset(
+        "assets/svgs/shape.svg",
+        width: 150,
+      ),
+      SizedBox(height: 30),
+      CustomText(
+          fontSize: 18,
+          text:
+              "support@openui.design \n      +60 825 876 \n 08:00 - 22:00 - Everyday"),
+      SizedBox(height: 30),
+      SvgPicture.asset(
+        "assets/svgs/shape.svg",
+        width: 150,
+      ),
+      SizedBox(height: 40),
+      CustomText(text: "About        Contact        Blog", fontSize: 18),
+      SizedBox(height: 30)
+    ],
+  );
+}
+===== D:\Android\open_fashion_app\lib\screens\place_order.dart =====
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:open_fashion/components/cart_widget.dart';
+import 'package:open_fashion/components/custom_app_bar.dart';
+import 'package:open_fashion/components/custom_button.dart';
+import 'package:open_fashion/components/custom_container.dart';
+import 'package:open_fashion/components/custom_dialog.dart';
+import 'package:open_fashion/components/custom_header.dart';
+import 'package:open_fashion/components/custom_text.dart';
+import 'package:open_fashion/components/shipping_method.dart';
+import 'package:open_fashion/core/colors.dart';
+import 'package:open_fashion/models/product_model.dart';
+import 'package:open_fashion/screens/add_new_address.dart';
+import 'package:open_fashion/screens/add_new_card.dart';
+
+class PlaceOrder extends StatefulWidget {
+  final ProductModel product;
+  final int total;
+  final int qunt;
+  const PlaceOrder(
+      {super.key,
+      required this.product,
+      required this.total,
+      required this.qunt});
+
+  @override
+  State<PlaceOrder> createState() => _PlaceOrderState();
+}
+
+class _PlaceOrderState extends State<PlaceOrder> {
+  dynamic savedAddress;
+  dynamic editAddress;
+  dynamic savedCard;
+  late int selectedQunt;
+
+  @override
+  void initState() {
+    selectedQunt = widget.qunt;
+    super.initState();
+  }
+
+// address
+  void _openAddress(context) async {
+    final dataAddress = await Navigator.push(
+        context, MaterialPageRoute(builder: (c) => AddNewAddress()));
+
+    if (dataAddress != null) {
+      setState(() {
+        savedAddress = dataAddress;
+      });
+    }
+  }
+
+  void _editAddress(context) async {
+    final newAddress = await Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (c) => AddNewAddress(lastAddress: savedAddress)));
+
+    setState(() {
+      savedAddress = newAddress;
+    });
+  }
+
+// card
+  void _openCard(context) async {
+    final dataCard = await Navigator.push(
+        context, MaterialPageRoute(builder: (c) => AddNewCard()));
+
+    if (dataCard != null) {
+      setState(() {
+        savedCard = dataCard;
+      });
+    }
+  }
+
+  void _editCard(context) async {
+    final newCard = await Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => AddNewCard(lastCard: savedCard)));
+    setState(() {
+      savedCard = newCard;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: CustomAppBar(isBlackk: false),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 20),
+                Center(child: CustomHeader(title: "checkout".toUpperCase())),
+                SizedBox(height: 20),
+                savedAddress != null && savedCard != null
+                    ? SizedBox.shrink()
+                    : CustomText(
+                        text: "Shipping address".toUpperCase(),
+                        fontSize: 16,
+                        color: Colors.black38,
+                      ),
+                SizedBox(height: 10),
+                savedAddress != null
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              CustomText(
+                                text:
+                                    "${savedAddress['first']} ${savedAddress['last']}",
+                                fontSize: 16,
+                                color: AppColor.primary,
+                              ),
+                              CustomText(
+                                text:
+                                    "${savedAddress['address']}".toUpperCase(),
+                                fontSize: 14,
+                                color: Colors.black38,
+                              ),
+                              CustomText(
+                                text: "Roseville NH 11523",
+                                fontSize: 14,
+                                color: Colors.black38,
+                              ),
+                              CustomText(
+                                text: "${savedAddress['phoneNumber']}",
+                                fontSize: 14,
+                                color: Colors.black38,
+                              ),
+                            ],
+                          ),
+                          SizedBox(width: 120),
+                          IconButton(
+                              onPressed: () {
+                                _editAddress(context);
+                              },
+                              icon: Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.black38,
+                              ))
+                        ],
+                      )
+                    : SizedBox.shrink(),
+                // Add shipping address
+                SizedBox(height: 20),
+                savedAddress != null
+                    ? SizedBox.shrink()
+                    : InkWell(
+                        onTap: () {
+                          setState(() {
+                            _openAddress(context);
+                          });
+                        },
+                        child: CustomContainer(
+                            text: "Add shipping address",
+                            icon: Icon(Icons.add),
+                            iconWithText: false),
+                      ),
+                SizedBox(height: 20),
+                // Shipping Method
+                savedAddress != null && savedCard != null
+                    ? SizedBox.shrink()
+                    : ShippingMethod(),
+                savedAddress != null && savedCard != null
+                    ? Divider(
+                        color: Colors.black12,
+                      )
+                    : SizedBox(height: 20),
+                // Payment method
+                savedAddress != null && savedCard != null
+                    ? SizedBox.shrink()
+                    : CustomText(
+                        text: "Payment method".toUpperCase(),
+                        fontSize: 16,
+                        color: Colors.black38,
+                      ),
+                SizedBox(height: 10),
+
+                savedCard != null
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          SvgPicture.asset("assets/svgs/MasterCard.svg"),
+                          CustomText(
+                            text:
+                                "Master Card ending ••••${savedCard['cardNumber'].substring(savedCard['cardNumber'].length - 2)}",
+                            color: AppColor.primary,
+                          ),
+                          IconButton(
+                              onPressed: () {
+                                _editCard(context);
+                              },
+                              icon: Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.black38,
+                              ))
+                        ],
+                      )
+                    : InkWell(
+                        onTap: () {
+                          _openCard(context);
+                        },
+                        child: CustomContainer(
+                            text: "select payment method",
+                            icon: Icon(Icons.keyboard_arrow_down_outlined),
+                            iconWithText: false),
+                      ),
+                savedAddress != null && savedCard != null
+                    ? Divider(
+                        color: Colors.black12,
+                      )
+                    : SizedBox(height: 20),
+                SizedBox(height: 20),
+                savedAddress != null && savedCard != null
+                    ? CartWidget(
+                        product: widget.product,
+                        onChanged: (qnt) {
+                          setState(() {
+                            selectedQunt = qnt;
+                          });
+                        },
+                        qunt: widget.qunt,
+                      )
+                    : SizedBox.shrink(),
+                SizedBox(height: 180),
+                // Total Price
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CustomText(
+                        text: "Total",
+                        color: AppColor.primary,
+                        fontSize: 18,
+                      ),
+                      CustomText(
+                        text:
+                            "\$${selectedQunt * int.parse(widget.product.price)}",
+                        color: Colors.red.shade200,
+                        fontSize: 18,
+                      ),
+                    ])
+              ],
+            ),
+          ),
+          Spacer(),
+          CustomButton(
+            name: "Place order".toUpperCase(),
+            withIcon: true,
+            svg: "assets/svgs/shopping bag.svg",
+            onTap: () {
+              showDialog(
+                  barrierDismissible: false,
+                  context: context,
+                  builder: (context) {
+                    return Dialog(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.zero),
+                      child: CustomDialog(),
+                    );
+                  });
+
+              // ----------------------------------------------------
+            },
+          )
+        ],
+      ),
+    );
+  }
+}
+===== D:\Android\open_fashion_app\test\widget_test.dart =====
+// This is a basic Flutter widget test.
+//
+// To perform an interaction with a widget in your test, use the WidgetTester
+// utility in the flutter_test package. For example, you can send tap and scroll
+// gestures. You can also use WidgetTester to find child widgets in the widget
+// tree, read text, and verify that the values of widget properties are correct.
+
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+import 'package:open_fashion/main.dart';
+
+void main() {
+  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(const MyApp());
+
+    // Verify that our counter starts at 0.
+    expect(find.text('0'), findsOneWidget);
+    expect(find.text('1'), findsNothing);
+
+    // Tap the '+' icon and trigger a frame.
+    await tester.tap(find.byIcon(Icons.add));
+    await tester.pump();
+
+    // Verify that our counter has incremented.
+    expect(find.text('0'), findsNothing);
+    expect(find.text('1'), findsOneWidget);
+  });
+}
