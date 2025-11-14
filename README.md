@@ -67,6 +67,13 @@ The app follows a component-based architecture with clear separation of concerns
 ![app_view2](assets/cover/fashion-app2.png)
 
 ---
+## 📦 Download APK  
+
+You can download the latest version of the **Fashion App** APK directly from Google Drive:  
+
+👉 [**Download Fashion App (APK)**](https://drive.google.com/file/d/1H1yADLzaNVZNl_c4EvAGJYMN3OX_ngm1/view?usp=sharing)  
+
+---
 
 ## 🌐 Social Links
 
